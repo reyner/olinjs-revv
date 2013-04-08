@@ -8,7 +8,7 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , twilio = require('twilio')
-  , twil = require('./routes/twil')
+  , sms = require('./routes/sms')
   , path = require('path');
 
 var app = express();
