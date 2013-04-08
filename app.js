@@ -7,7 +7,6 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , twilio = require('twilio')
   , twil = require('./routes/twil')
   , path = require('path');
 
