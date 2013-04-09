@@ -1,4 +1,5 @@
-var Imap = require('imap');
+var Imap = require('imap')
+  , mailparser = require('mailparser');
 
 var imap = new Imap({
   user: process.env.GMAIL_LOGIN,
@@ -8,7 +9,7 @@ var imap = new Imap({
   secure: true
 }), box;
 
-function openInbox (next) {
+exports.openInbox = function openInbox (next) {
   imap.connect(function (err) {
     if (err) {
       console.error('Error connecting', err);
@@ -155,7 +156,7 @@ exports.search = function (req, res) {
     ).map(function (arr) {
       return {
         ids: arr.map(Number),
-        url: 'http://' + app.get('host') + '/api/messages?ids=' + arr.join(',') + '&sessionid=' + req.session.sessionid
+        url: 'http://localhost:3000' + '/api/messages?ids=' + arr.join(',') + '&sessionid=' + req.session.sessionid
       };
     });
     res.json({groups: groups});

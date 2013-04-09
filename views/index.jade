@@ -1,7 +1,7 @@
 !!! 5
 html
   head
-    title Superconductors
+    title MailMS
     script(src='http://code.jquery.com/jquery.js')
     script(src='/bootstrap/js/bootstrap.min.js')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
@@ -23,11 +23,16 @@ html
       .span12.offset2
         br
         center
-          h1  Add your phone number to get started
+          h1  Add your email and phone to get started
         br
     .row
       .span12.offset6
         center
-          form.navbar-search.pull-left(id= "add_number", name="add_number", action="/sms", method="post")
-            input.search-query(type='text', placeholder='+1 (555) 555 - 5555', name="add_number")
+          form.navbar-search.pull-left(id= "add_number", name="add_number", action="/sms", method="post")            
+            input(type='text', placeholder='Phone Number', name="add_number")
+            br
+            input(type='text', placeholder='Email Address', name="add_email_address")
+            br
+            input(type='password', placeholder='Email Password', name="add_email_password")
+            br
             button.btn(type='submit') Go
