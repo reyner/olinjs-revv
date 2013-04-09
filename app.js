@@ -38,8 +38,6 @@ app.get('/sms', sms.load);
 app.get('/imap/lists/:list', imap.getList);
 app.get('/imap/messages', imap.messages);
 
-openInbox(function () {
-  http.createServer(app).listen(app.get('port'), function(){
-    console.log("Express server listening on http://" + app.get('host'));
-  });
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on http://" + app.get('port'));
 });

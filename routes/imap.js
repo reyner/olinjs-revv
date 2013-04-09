@@ -146,20 +146,22 @@ function mailStream (ids, stream) {
 }
 
 exports.getList = function (req, res) {
-  searchMail((req.query.text || '').split(/\s+/), function (err, ids) {
-    var chunkSize = 50;
-    var groups = [].concat.apply([],
-      ids.map(function (elem, i) {
-        return i % chunkSize ? [] : [ids.slice(i, i + chunkSize)];
-      })
-    ).map(function (arr) {
-      return {
-        ids: arr.map(Number),
-        url: 'http://' + app.get('host') + '/api/messages?ids=' + arr.join(',') + '&sessionid=' + req.session.sessionid
-      };
-    });
-    res.json({groups: groups});
-  })
+  openInbox(
+    searchMail((req.query.text || '').split(/\s+/), function (err, ids) {
+      var chunkSize = 50;
+      var groups = [].concat.apply([],
+        ids.map(function (elem, i) {
+          return i % chunkSize ? [] : [ids.slice(i, i + chunkSize)];
+        })
+      ).map(function (arr) {
+        return {
+          ids: arr.map(Number),
+          url: 'http://' + app.get('host') + '/api/messages?ids=' + arr.join(',') + '&sessionid=' + req.session.sessionid
+        };
+      });
+      res.json({groups: groups});
+    })
+  );
 };
 
 exports.messages = function (req, res) {
