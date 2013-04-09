@@ -5,7 +5,7 @@ exports.load = function(req, res){
     client.sms.messages.create({
         to:'+17038017814',
         from:'+14076245704',
-        body:'ahoy hoy! Testing Twilio and node.js'
+        body:'This is where your email text goes'
     }, function(error, message) {
         
         // The HTTP request to Twilio will run asynchronously.  This callback

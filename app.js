@@ -34,9 +34,10 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/sms', sms.load);
 app.get('/imap/lists/:list', imap.getList);
 app.get('/imap/messages', imap.messages);
+
+app.post('/sms', sms.load);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
