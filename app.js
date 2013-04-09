@@ -9,6 +9,7 @@ var express = require('express')
   , http = require('http')
   , twilio = require('twilio')
   , sms = require('./routes/sms')
+  , imap = require('./routes/imap')
   , path = require('path');
 
 var app = express();
@@ -34,7 +35,11 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/sms', sms.load);
+app.get('/imap/lists/:list', imap.getList);
+app.get('/imap/messages', imap.messages);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+openInbox(function () {
+  http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on http://" + app.get('host'));
+  });
 });
