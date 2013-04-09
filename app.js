@@ -53,10 +53,10 @@ function openInbox (next) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-
-app.get('/sms', sms.load);
 app.get('/imap/search', imapRoute.search);
 app.get('/imap/messages', imapRoute.messages);
+
+app.post('/sms', sms.load);
 
 openInbox(function () {
   http.createServer(app).listen(app.get('port'), function(){
