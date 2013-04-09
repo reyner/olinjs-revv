@@ -1,5 +1,5 @@
 var twilio = require('twilio');
-var client = new twilio.RestClient('ACdd2af7b3991b85c37ef50d5aba5894a6', '0b36a23e971506e25b78f6912446d713');
+var client = new twilio.RestClient(TWILIO_KEY, TWILIO_SECRET);
 
 exports.load = function(req, res){
   	res.render('index', { title: 'Express' });
