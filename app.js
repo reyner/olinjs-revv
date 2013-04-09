@@ -34,8 +34,8 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/imap/search', imapRoute.search);
-app.get('/imap/messages', imapRoute.messages);
+app.get('/imap/search', imap.search);
+app.get('/imap/messages', imap.messages);
 
 app.post('/sms', sms.load);
 
