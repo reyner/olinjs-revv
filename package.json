@@ -1,12 +1,20 @@
 {
-  "name": "mail.ms",
+  "name": "mailms",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app"
   },
   "dependencies": {
-    "express": "3.0.6",
+    "express": "3.1.0",
     "jade": "*"
+  },
+  "modules": {
+    "client": "./lib/twilio",
+    "twiml": "./lib/twiml"
+  },
+   "engines": {
+    "node": "0.8.14",
+    "npm": "1.1.65"
   }
 }
