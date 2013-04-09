@@ -1,8 +1,8 @@
 var Imap = require('imap');
 
 var imap = new Imap({
-  user: process.env.ARCHIVE_LOGIN,
-  password: process.env.ARCHIVE_PASS,
+  user: process.env.GMAIL_LOGIN,
+  password: process.env.GMAIL_PASS,
   host: 'imap.gmail.com',
   port: 993,
   secure: true
@@ -27,11 +27,11 @@ function selectBox (box, next) {
   })
 }
 
-function searchMail (list, keywords, next) {
+function searchMail (keywords, next) {
   selectBox('[Gmail]/All Mail', function () {
     imap.search([
       //'ALL', ['SENTBEFORE', 'Dec 10, 2004'],
-      ['X-GM-LABELS', list],
+      // ['X-GM-LABELS', list],
       ['TEXT', keywords.join(' ')]
     ], function (err, results) {
       console.log(results.length);
@@ -146,7 +146,7 @@ function mailStream (ids, stream) {
 }
 
 exports.getList = function (req, res) {
-  searchMail(req.params.list, (req.query.text || '').split(/\s+/), function (err, ids) {
+  searchMail((req.query.text || '').split(/\s+/), function (err, ids) {
     var chunkSize = 50;
     var groups = [].concat.apply([],
       ids.map(function (elem, i) {
