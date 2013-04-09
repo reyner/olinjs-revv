@@ -33,11 +33,11 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/imap/search', imap.search);
 app.get('/imap/messages', imap.messages);
 
 app.post('/sms', sms.load);
+app.post('/users', user.new);
 
 imap.openInbox(function () {
   http.createServer(app).listen(app.get('port'), function(){
