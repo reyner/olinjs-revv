@@ -39,5 +39,5 @@ app.get('/imap/lists/:list', imap.getList);
 app.get('/imap/messages', imap.messages);
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on http://" + app.get('port'));
+  console.log("Express server listening on port " + app.get('port'));
 });
