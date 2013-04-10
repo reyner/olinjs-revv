@@ -5,7 +5,7 @@ exports.load = function(req, res){
     console.log(req.body);
     
     client.sms.messages.create({
-        to:'+18017814',
+        to:req.body.From,
         from:'+14076245704',
         body:'Your email has been sent.'
     }, function(error, message) {
