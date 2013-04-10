@@ -35,18 +35,19 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/imap/search', imap.search);
 app.get('/imap/messages', imap.messages);
-app.get('/sms', sms.load);
+
 
 app.post('/users', user.new);
+app.post('/sms', sms.load);
 
-var sys = require('sys');
-app.post('/incoming', function(req, res) {
-  var message = req.body.Body;
-  var from = req.body.From;
-  sys.log('From: ' + from + ', Message: ' + message);
-    var twiml = '<?xml version="1.0" encoding="UTF-8" ?>n<Response>n<Sms>Thanks for your text, well be in touch.</Sms>n</Response>';
-    res.send(twiml, {'Content-Type':'text/xml'}, 200);
-});
+// var sys = require('sys');
+// app.post('/sms', function(req, res) {
+//   var message = req.body.Body;
+//   var from = req.body.From;
+//   sys.log('From: ' + from + ', Message: ' + message);
+//     var twiml = '<?xml version="1.0" encoding="UTF-8" ?>n<Response>n<Sms>Thanks for your text, well be in touch.</Sms>n</Response>';
+//     res.send(twiml, {'Content-Type':'text/xml'}, 200);
+// });
 
 imap.openInbox(function () {
   http.createServer(app).listen(app.get('port'), function(){
