@@ -8,7 +8,8 @@
   "dependencies": {
     "express": "3.1.0",
     "jade": "*",
-    "mongoose": "3.x"
+    "mongoose": "3.x",
+    "twilio": "*"
   },
   "modules": {
     "client": "./lib/twilio",
