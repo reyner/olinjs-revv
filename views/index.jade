@@ -28,11 +28,11 @@ html
     .row
       .span12.offset6
         center
-          form.navbar-search.pull-left(id= "add_number", name="add_number", action="/users", method="post")
-            input(type='text', placeholder='Phone Number', name="add_number")
+          form.navbar-search.pull-left(id= "add_number", name="user_info", action="/users", method="post")
+            input(type='text', placeholder='Phone Number', name="phone_number")
             br
-            input(type='text', placeholder='Email Address', name="add_email_address")
+            input(type='text', placeholder='Email Address', name="email_address")
             br
-            input(type='text', placeholder='Email Password', name="add_email_password")
+            input(type='text', placeholder='Email Password', name="email_password")
             br
             button.btn(type='submit') Go
