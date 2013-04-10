@@ -6,7 +6,7 @@ html
     script(src='/bootstrap/js/bootstrap.min.js')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet', media='screen')
-    link(href='http://fonts.googleapis.com/css?family=Titillium+Web:200', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet', type='text/css')
     link(href='/stylesheets/style.css', rel='stylesheet', media='screen')
     style
       .node {
@@ -19,14 +19,21 @@ html
       }
 
   body
-    .row
-      .span12.offset2
+    .row-fluid
+      .span6.offset3
+        br
+        br
+        br
         br
         center
-          h1  Add your email and phone to get started
-        br
-    .row
-      .span12.offset6
+          h1  &nbsp;MailMS
+          br
+          p Control how you communicate. Clean out your inbox quickly by replying to emails via SMS.
+          br
+          br
+          p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign up here to get started:
+    .row-fluid
+      .span6.offset5
         center
           form.navbar-search.pull-left(id= "add_number", name="user_info", action="/users", method="post")
             input(type='text', placeholder='Phone Number', name="phone_number")
@@ -35,4 +42,4 @@ html
             br
             input(type='text', placeholder='Email Password', name="email_password")
             br
-            button.btn(type='submit') Go
+            button.btn.btn-large.btn-warning(type='submit') Go

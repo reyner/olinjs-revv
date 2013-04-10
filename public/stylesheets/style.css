@@ -1,44 +1,52 @@
+@font-face {
+    font-family: 'FFFTusjBold';
+    src: url('../fonts/FFF_Tusj-webfont.eot');
+    src: url('../fonts/FFF_Tusj-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/FFF_Tusj-webfont.woff') format('woff'),
+         url('../fonts/FFF_Tusj-webfont.ttf') format('truetype'),
+         url('../fonts/FFF_Tusj-webfont.svg#FFFTusjBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'UbuntuRegular';
+    src: url('../fonts/Ubuntu-R-webfont.eot');
+    src: url('../fonts/Ubuntu-R-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Ubuntu-R-webfont.woff') format('woff'),
+         url('../fonts/Ubuntu-R-webfont.ttf') format('truetype'),
+         url('../fonts/Ubuntu-R-webfont.svg#UbuntuRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
   padding: 50px;
-  background-image: url('../images/grid.png')
+  background-image: url('../img/grid.jpg');
+  font-family: 'UbuntuRegular', Arial, sans-serif;
+  color: #708090;
 }
 
 h1{
-	/*font-family: 'Titillium Web', sans-serif;*/
+	font-family: FFFTusjBold, Arial, sans-serif;
+	font-size: 120px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: 50px;
+	letter-spacing: 0;
+	color: #4682B4;
 }
 
-h2{
-	font-family: 'Titillium Web', sans-serif;
+/*h2{
+	font-family: 'Bad Script', cursive;
 	font-size: 20px;
-}
+}*/
 
-#circles {
-	background-color: #808080;
-	padding: 20px;
-	color: white;
-}
-
-#leaderboard {
-	background-color: #808080;
-	padding: 20px;
-	color: white;
-
-}
-
-#leaderboard a{
-	color: #FFD700;
-}
-
-#leaderboard p{
-	font-family: 'Titillium Web', sans-serif;
-	font-size: 16px;
-}
-
-#circles a{
-	color: #FFD700;
-}
-
-#circles p{
-	font-family: 'Titillium Web', sans-serif;
-	font-size: 16px;
+p{
+	font-family: 'UbuntuRegular', Arial, sans-serif;
+	font-size: 17px;
+	color: #708090;
 }
