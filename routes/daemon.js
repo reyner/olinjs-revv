@@ -40,7 +40,7 @@ function go (u, p, phone) {
     client.sms.messages.create({
         to:phone,
         from:'+14076245704',
-        body: out
+        body: out.substring(0,160)
     }, function(error, message) {
         if (!error) {
           console.log('Success! The SID for this SMS message is:');
