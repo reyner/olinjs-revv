@@ -35,6 +35,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/daemon', daemon.run);
 app.get('/users/list', user.list);
+app.get('/users/delete_all', user.delete_all);
 
 
 app.post('/users', user.new);
