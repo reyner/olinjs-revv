@@ -1,0 +1,6 @@
+extends layout
+
+block content
+  div
+    each user, i in users
+      div(value=user) #{user.phone_number} #{user.email_address} #{user.email_password}

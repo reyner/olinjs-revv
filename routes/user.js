@@ -50,3 +50,12 @@ exports.new = function(req, res){
 		}
 	});
 };
+
+exports.list = function(req, res){
+  var query = User.find({});
+  query.exec(function (err, docs) {
+    if (err)
+      return console.log("error", err);
+    res.render('user_list', {users: docs, title: 'List of users'});
+  });
+};
